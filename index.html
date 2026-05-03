@@ -3,33 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FastKeno</title>
+    <title>FastKeno Ethiopia</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <div class="game-container">
-        <div class="timer-wrapper">
-            <div id="timer-bar"></div>
-            <span id="timer-text">60s</span>
+        <div class="header">
+            <div class="timer-wrapper"><div id="timer-bar"></div></div>
+            <div id="timer-text">Next Draw: 60s</div>
         </div>
 
-        <div class="stats-bar">
-            <div>Bet: <span id="bet-display">10</span> ETB</div>
-            <div>Selected: <span id="count-display">0/10</span></div>
+        <div class="stats-row">
+            <div class="stat-box">BALANCE<br><span id="balance">1000</span> ETB</div>
+            <div class="stat-box">WINNINGS<br><span id="last-win" style="color: #00ffcc;">0.00</span></div>
+        </div>
+
+        <div class="live-draw-area" id="live-draw">
+            <div class="placeholder">WAITING FOR NEXT ROUND...</div>
         </div>
 
         <div class="keno-board" id="board"></div>
 
-        <div class="controls">
-            <button onclick="updateBet(-10)">-10</button>
-            <button onclick="updateBet(10)">+10</button>
-            <button class="play-btn">PLACE BET</button>
+        <div class="betting-controls">
+            <div class="bet-selector">
+                <button onclick="changeBet(-10)">-</button>
+                <span id="bet-amount">10</span>
+                <button onclick="changeBet(10)">+</button>
+            </div>
+            <button class="place-bet-btn" onclick="placeBet()">PLACE BET</button>
         </div>
 
         <div class="history-section">
-            <h4>Recent Draws</h4>
-            <ul id="history-list"></ul>
+            <h3>LAST RESULTS</h3>
+            <div id="history-list"></div>
         </div>
     </div>
     <script src="script.js"></script>
