@@ -1,82 +1,27 @@
-body {
-    background-color: #0f3460;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-}
+body { background: #0a0e17; color: white; font-family: sans-serif; margin: 0; display: flex; justify-content: center; }
+.game-container { width: 100%; max-width: 420px; background: #121826; padding: 15px; min-height: 100vh; }
 
-.game-container {
-    width: 95%;
-    max-width: 400px;
-    padding-top: 20px;
-}
+.timer-wrapper { height: 8px; background: #1c2536; border-radius: 4px; overflow: hidden; margin-bottom: 5px; }
+#timer-bar { background: #00ffcc; width: 100%; height: 100%; transition: width 1s linear; }
+#timer-text { text-align: center; font-size: 12px; font-weight: bold; margin-bottom: 15px; }
 
-.timer-wrapper {
-    width: 100%;
-    height: 25px;
-    background: #16213e;
-    border-radius: 12px;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #1a1a2e;
-}
+.stats-row { display: flex; gap: 10px; margin-bottom: 15px; }
+.stat-box { flex: 1; background: #1c2536; padding: 10px; border-radius: 6px; text-align: center; font-size: 11px; border-bottom: 2px solid #2d3a4f; }
+.stat-box span { font-size: 18px; font-weight: bold; }
 
-#timer-bar {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #08d9d6, #22f0e0);
-    transition: width 1s linear;
-}
+.live-draw-area { background: #000; border: 1px solid #2d3a4f; min-height: 90px; border-radius: 8px; display: flex; flex-wrap: wrap; gap: 5px; padding: 10px; justify-content: center; align-content: center; }
+.draw-ball { width: 30px; height: 30px; background: radial-gradient(circle at 30% 30%, #ffffff, #ffcc00); color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; animation: pop 0.3s ease-out; }
 
-#timer-text {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 2px;
-    font-weight: bold;
-    font-size: 14px;
-}
+@keyframes pop { 0% { transform: scale(0); } 100% { transform: scale(1); } }
 
-.keno-board {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 4px;
-    background: #1a1a2e;
-    padding: 10px;
-    border-radius: 8px;
-    margin-top: 15px;
-}
+.keno-board { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; margin-bottom: 20px; }
+.num-btn { background: #1c2536; border: 1px solid #2d3a4f; color: white; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-weight: bold; font-size: 13px; cursor: pointer; }
+.num-btn.selected { background: #00ffcc; color: #000; border-color: #fff; }
+.num-btn.winner { background: #ffcc00; color: #000; transform: scale(1.05); box-shadow: 0 0 10px #ffcc00; }
 
-.number-btn {
-    background: #16213e;
-    border: 1px solid #333;
-    padding: 10px 0;
-    text-align: center;
-    border-radius: 4px;
-    font-size: 12px;
-}
+.betting-controls { display: flex; gap: 10px; margin-bottom: 20px; }
+.bet-selector { display: flex; align-items: center; background: #1c2536; border-radius: 6px; padding: 0 10px; }
+.bet-selector button { background: none; border: none; color: #00ffcc; font-size: 24px; cursor: pointer; padding: 5px 15px; }
+.place-bet-btn { flex: 1; background: #00ffcc; color: #0a0e17; border: none; border-radius: 6px; font-weight: bold; font-size: 16px; cursor: pointer; }
 
-.number-btn.selected { background: #e94560; box-shadow: 0 0 10px #e94560; }
-.number-btn.winner { background: #f9d423; color: #1a1a2e; animation: pulse 0.5s; }
-
-@keyframes pulse {
-    50% { transform: scale(1.2); }
-}
-
-.controls {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-button {
-    background: #16213e;
-    color: white;
-    border: 1px solid #08d9d6;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.play-btn { background: #08d9d6; color: #1a1a2e; font-weight: bold; flex-grow: 1; margin-left: 10px; }
+.history-item { background: #1c2536; padding: 8px; border-radius: 4px; margin-bottom: 5px; display: flex; justify-content: space-between; font-size: 12px; }
