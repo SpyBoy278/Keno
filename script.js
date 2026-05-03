@@ -1,7 +1,9 @@
 let currentBet = 10;
 let selectedNumbers = [];
 let timeLeft = 60;
-
+const supabaseUrl = 'sb_publishable_rcJDQP06IO3Ya1h9tWhK1g_eyQ41oAB';
+const supabaseKey = 'sb_secret_UhGIzthNtCTREhIWDjq5fg_uxpHgEnV';
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 // Initialize Board
 const board = document.getElementById('board');
 for (let i = 1; i <= 80; i++) {
