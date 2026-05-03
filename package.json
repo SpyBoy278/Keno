@@ -1,7 +1,6 @@
 {
-  "name": "fastkeno-tma",
+  "name": "fastkeno-ethio",
   "version": "1.0.0",
-  "description": "FastKeno Telegram Mini App",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
