@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastKeno - Pro Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <div class="timer-container">
+            <div id="timer-bar"></div>
+            <span id="timer-text">60s</span>
+        </div>
+
+        <div class="stats-bar">
+            <div>BET: <span id="bet-display">10 ETB</span></div>
+            <div>SELECTED: <span id="count-display">0/10</span></div>
+        </div>
+
+        <div class="keno-board" id="board"></div>
+
+        <div class="controls">
+            <button onclick="updateBet(-10)">-10</button>
+            <button onclick="updateBet(10)">+10</button>
+            <button id="play-btn" class="main-btn">PLACE BET</button>
+        </div>
+
+        <div class="history-panel">
+            <h3>Recent Draws</h3>
+            <ul id="history-list">
+                <li class="history-item">Waiting for first draw...</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+              </html>
