@@ -5,11 +5,6 @@ const supabaseUrl = window.env?.SUPABASE_URL || 'sb_publishable_rcJDQP06IO3Ya1h9
 const supabaseKey = window.env?.SUPABASE_KEY || 'sb_secret_UhGIzthNtCTREhIWDjq5fg_uxpHgEnV';
 const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Keno server running on port ${port}`);
-});
-
 const express = require('express');
 const app = express();
 app.use(express.static('.')); // This serves your index.html
@@ -92,3 +87,27 @@ function updateHistoryUI(winners) {
 }
 
 startTimer();
+// ... existing code (Express setup, static files, bot.start) ...
+
+// 1. Launch the Telegram Bot
+bot.launch()
+  .then(() => {
+    console.log('✅ Bot is running!');
+  })
+  .catch((err) => {
+    console.error('❌ Bot failed to launch:', err);
+  });
+
+// 2. Start the Express Server
+app.listen(PORT, () => {
+  console.log(`🚀 Game Server is live on port ${PORT}`);
+});
+
+// 3. Graceful stop (optional but professional)
+process.once('SIGINT', () => bot.stop('SIGINT'));
+process.once('SIGTERM', () => bot.stop('SIGTERM'));
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Keno server running on port ${port}`);
+});
