@@ -4,6 +4,15 @@ let timeLeft = 60;
 const supabaseUrl = window.env?.SUPABASE_URL || 'sb_publishable_rcJDQP06IO3Ya1h9tWhK1g_eyQ41oAB';
 const supabaseKey = window.env?.SUPABASE_KEY || 'sb_secret_UhGIzthNtCTREhIWDjq5fg_uxpHgEnV';
 const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Keno server running on port ${port}`);
+});
+
+const express = require('express');
+const app = express();
+app.use(express.static('.')); // This serves your index.html
 // Initialize Board
 const board = document.getElementById('board');
 for (let i = 1; i <= 80; i++) {
